@@ -1,0 +1,11 @@
+groups:
+- name: node-alerts
+  rules:
+  - alert: HighCPUUsage
+    expr: node_cpu_seconds_total{mode="idle"} < 0.2
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "High CPU usage detected"
+      description: "Node CPU idle time is below 20%"
