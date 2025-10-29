@@ -1,0 +1,12 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  receiver: 'slack-alert'
+receivers:
+  - name: 'slack-alert'
+    slack_configs:
+      - send_resolved: true
+        channel: '#alerts'
+        username: 'AlertManager'
+        api_url: 'https://hooks.slack.com/services/XXXX/YYYY/ZZZZ'
